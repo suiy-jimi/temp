@@ -7,6 +7,8 @@ npm install -g @angular/cli@1.0.0
 cd /home/vagrant/code/KARADA_SRV-main/Angular2TS/account
 npm install
 
+test3
+
 --502 Bad Gateway問題対応方法
 cd /etc/php/7.2/mods-available
 sudo vim xdebug.ini
