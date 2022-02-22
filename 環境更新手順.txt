@@ -1,3 +1,4 @@
+test
 sudo su
 cd /home/vagrant/code
 npm install -g @angular/cli@1.0.0
