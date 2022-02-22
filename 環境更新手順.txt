@@ -1,0 +1,85 @@
+sudo su
+cd /home/vagrant/code
+npm install -g @angular/cli@1.0.0
+cd /home/vagrant/code/KARADA_SRV-main/Angular2TS/account
+npm install
+
+--502 Bad Gateway問題対応方法
+cd /etc/php/7.2/mods-available
+sudo vim xdebug.ini
+//全部行前に”;”を追加する
+sudo service nginx restart
+sudo service php7.2-fpm restart
+sudo /etc/init.d/apache2 restart
+
+更改文件权限 （chmod命令）
+chmod 777 ファイル
+
+--Apache error Log 確認
+tail -f /var/log/apache2/error.log
+
+-- ファイル検索
+find / -name xxxx.xxx
+
+--ソースコード統計
+npm install -g cloc
+cloc ./ --exclude-dir=フォルダ名
+cloc ./ --exclude-dir=cgi-data
+
+
+--ソフトインストール
+sudo apt install perl=5.16.3
+
+rpm -ivh perl-CGI-3.63-4.el7.noarch.rpm
+
+sudo alien perl-CGI-3.63-4.el7.noarch.rpm
+
+sudo alien perl-CGI-3.63-4.amzn2.noarch.rpm
+sudo dpkg -i perl-cgi_3.63-5_all.deb
+
+
+sudo apt install perl-CGI
+
+composer install --ignore-platform-reqs
+composer update --ignore-platform-reqs
+
+
+sudo ufw status    // 查看防火墙状态，inactive状态是防火墙关闭状态 active是开启状态
+sudo ufw disable   // 关闭防火墙
+
+location / {
+try_files $uri $uri/ $uri.php$is_args$args;
+}
+
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+
+    }
+
+
+homestead Apache php 设定方法
+
+vagrant provision 是使 Vagrant 重新加载 Homestead.yaml 配置；
+vagrant reload 是重启虚拟机使更改生效。
+
+
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+
+--Perl 模块安装
+perl -MCPAN -e shell　   
+cpan>h                 #获取帮助　  
+cpan>m　                  #获取模块  
+cpan[1]> i /DBI/       #匹配查找　   
+cpan>install　DBI      #安装模块 　  
+cpan>q                 #退出安装  
+
+vagrant package --base homestead --output homestead-new.box
+
+
+
+&DBase::Log::get()->error("[$datetime]" . 'Session.pm _load $opt ' . Dumper $opt);
